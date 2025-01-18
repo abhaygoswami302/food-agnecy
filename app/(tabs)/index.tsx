@@ -1,12 +1,24 @@
-import { View, Text, StyleSheet, ImageBackground } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  ImageBackground,
+  Pressable,
+} from "react-native";
 import React from "react";
 import HomeBanner from "@/assets/images/home-banner.jpg";
+import { Link } from "expo-router";
 
 const index = () => {
   return (
     <View style={styles.Container}>
       <ImageBackground style={styles.image} source={HomeBanner}>
         <Text style={styles.text}>Food Agency</Text>
+        <Link href={"/contact"}  asChild>
+          <Pressable style={styles.button}>
+            <Text style={styles.buttonText}>Contact</Text>
+          </Pressable>
+        </Link>
       </ImageBackground>
     </View>
   );
@@ -35,5 +47,17 @@ const styles = StyleSheet.create({
     resizeMode: "cover",
     justifyContent: "center",
     alignItems: "center",
+  },
+  buttonText: {
+    color: "white",
+    fontSize:18
+  },
+  button: {
+    padding: 6,
+    backgroundColor: "gray",
+    borderRadius:12,
+    marginTop:4,
+    justifyContent:"center",
+    alignItems:"center"
   },
 });
